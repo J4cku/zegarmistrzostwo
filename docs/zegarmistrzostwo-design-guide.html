@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zegarmistrzostwo — Branding & Web Design Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
+  :root {
+    --charcoal: #1D1D1B;
+    --ink: #1A1A1A;
+    --gold: #C5A258;
+    --gold-light: #D4B87A;
+    --gold-muted: #A8884A;
+    --cream: #F5F0EA;
+    --warm-white: #FAF7F2;
+    --white: #FFFFFF;
+    --smoke: #EEEAE3;
+    --mid: #8A8580;
+    --light-border: #E5DFD4;
+    --text: #3A3835;
+    --text-light: #6B6660;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Guide header — light, Piaget-style */
+  .hero {
+    background: var(--white);
+    color: var(--charcoal);
+    padding: 72px 40px 64px;
+    text-align: center;
+    border-bottom: 1px solid var(--light-border);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300;
+    letter-spacing: 0.06em; margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .hero .tagline {
+    font-size: 0.9rem; color: var(--mid);
+    font-weight: 400; letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero .tagline span { color: var(--gold); }
+  .hero .pill {
+    display: inline-block; margin-top: 24px;
+    padding: 6px 20px; border: 1px solid var(--light-border);
+    border-radius: 0; font-size: 0.62rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .container { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--light-border); }
+  section:last-child { border-bottom: none; }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300; letter-spacing: 0.03em;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 14px;
+    text-transform: uppercase;
+  }
+  h2 .num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem; font-weight: 500; color: var(--gold);
+    border: 1px solid rgba(197,162,88,0.3); padding: 4px 10px;
+    letter-spacing: 0.06em;
+  }
+  .section-desc { font-size: 0.88rem; color: var(--text-light); margin-bottom: 32px; max-width: 640px; }
+  h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 8px; margin-top: 28px; letter-spacing: 0.02em; }
+  p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 14px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .card {
+    background: var(--white); border: 1px solid var(--light-border);
+    padding: 20px;
+  }
+  .card .label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 4px; font-weight: 500; }
+  .card .value { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--text); }
+
+  .note {
+    background: var(--warm-white); border: 1px solid var(--light-border);
+    border-left: 2px solid var(--gold);
+    padding: 20px 24px; margin-top: 20px;
+  }
+  .note h4 { font-family: 'DM Sans', sans-serif; font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+  .note p { font-size: 0.85rem; margin: 0; }
+
+  .palette { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .swatch { text-align: center; }
+  .swatch-color { width: 80px; height: 80px; margin-bottom: 8px; border: 1px solid rgba(0,0,0,0.06); transition: transform 0.2s; }
+  .swatch-color:hover { transform: scale(1.05); }
+  .swatch-name { font-size: 0.7rem; font-weight: 500; color: var(--text); }
+  .swatch-hex { font-size: 0.65rem; color: var(--mid); font-family: 'DM Sans', monospace; }
+  .palette-row { margin-bottom: 28px; }
+  .palette-row h3 { margin-top: 0; margin-bottom: 12px; }
+
+  .logo-showcase { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+  .logo-variant {
+    flex: 1; min-width: 220px; padding: 36px 28px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; border: 1px solid var(--light-border);
+  }
+  .logo-variant.dark { background: var(--charcoal); border-color: var(--charcoal); }
+  .logo-variant.light { background: var(--white); }
+  .logo-variant.accent { background: var(--cream); }
+  .logo-variant svg { max-height: 80px; width: auto; }
+  .logo-variant .variant-label { font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
+  .logo-variant.dark .variant-label { color: rgba(255,255,255,0.35); }
+
+  .logo-usage-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .logo-usage-item { background: var(--white); border: 1px solid var(--light-border); padding: 20px; text-align: center; }
+  .logo-usage-item .usage-icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .logo-usage-item h4 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; margin-bottom: 4px; font-weight: 500; }
+  .logo-usage-item p { font-size: 0.72rem; color: var(--mid); margin: 0; }
+
+  .type-demo { background: var(--white); border: 1px solid var(--light-border); padding: 32px; margin-bottom: 12px; }
+  .type-demo .demo-label { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; font-weight: 500; }
+  .type-heading { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; letter-spacing: 0.02em; color: var(--charcoal); text-transform: uppercase; }
+  .type-subheading { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--gold); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .type-body-demo { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 400; line-height: 1.8; color: var(--text-light); }
+  .type-accent { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; font-weight: 300; color: var(--mid); }
+
+  .sitemap { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+  .sitemap-page { background: var(--white); border: 1px solid var(--light-border); padding: 16px 20px; display: flex; align-items: center; gap: 14px; transition: border-color 0.2s; }
+  .sitemap-page:hover { border-color: var(--gold); }
+  .page-num { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 500; color: var(--mid); border: 1px solid var(--light-border); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .page-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; margin-bottom: 2px; letter-spacing: 0.02em; }
+  .page-info p { font-size: 0.78rem; margin: 0; color: var(--mid); }
+  .badge { font-size: 0.55rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; margin-left: auto; white-space: nowrap; }
+  .badge-now { background: var(--gold); color: white; }
+  .badge-next { background: var(--smoke); color: var(--mid); }
+  .badge-future { background: transparent; border: 1px solid var(--light-border); color: var(--mid); }
+
+  /* ===== WIREFRAME — Piaget-inspired, light ===== */
+  .wireframe { background: var(--white); border: 1px solid var(--light-border); overflow: hidden; margin: 20px 0; }
+
+  /* White nav bar with centered logo */
+  .wf-nav {
+    background: var(--white); color: var(--charcoal);
+    padding: 20px 32px 0; text-align: center;
+    border-bottom: 1px solid var(--light-border);
+  }
+  .wf-nav .top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .wf-nav .side-links { font-size: 0.65rem; color: var(--text-light); letter-spacing: 0.04em; display: flex; gap: 20px; }
+  .wf-nav .logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300;
+    letter-spacing: 0.08em; text-transform: uppercase; position: absolute; left: 50%; transform: translateX(-50%);
+  }
+  .wf-nav .top-row { position: relative; }
+  .wf-nav .icon-links { font-size: 0.75rem; color: var(--text-light); }
+  .wf-nav .main-links {
+    display: flex; justify-content: center; gap: 32px; padding-bottom: 16px;
+    font-size: 0.68rem; font-weight: 500; color: var(--text-light);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* Video hero — full bleed but with light overlay option */
+  .wf-video-hero {
+    position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #e8e3dc 0%, #d9d2c8 50%, #cec6ba 100%);
+    overflow: hidden;
+  }
+  .wf-video-hero .video-bg {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,0,0,0.01) 4px, rgba(0,0,0,0.01) 5px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .wf-video-hero .video-bg .play-icon {
+    width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(0,0,0,0.15); font-size: 1rem;
+  }
+  .wf-video-hero .video-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.45) 100%);
+  }
+  .wf-video-hero .hero-content {
+    position: relative; z-index: 2; text-align: center; color: var(--white); padding: 48px 40px;
+  }
+  .wf-video-hero .hero-content .wf-tagline {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300;
+    letter-spacing: 0.06em; margin-bottom: 14px; line-height: 1.2; text-transform: uppercase;
+  }
+  .wf-video-hero .hero-content .wf-sub {
+    font-size: 0.75rem; color: rgba(255,255,255,0.6); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400;
+  }
+  .wf-video-hero .hero-content .wf-cta {
+    margin-top: 32px; display: inline-block; padding: 0; background: none; color: var(--white);
+    font-size: 0.72rem; font-weight: 400; border: none; border-bottom: 1px solid rgba(255,255,255,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 3px;
+  }
+
+  /* Product heading on white */
+  .wf-product-heading {
+    text-align: center; padding: 56px 40px 16px;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal);
+  }
+  .wf-product-sub {
+    text-align: center; font-size: 0.82rem; color: var(--text-light); max-width: 500px;
+    margin: 0 auto; padding: 0 20px 8px; line-height: 1.7;
+  }
+  .wf-text-link {
+    text-align: center; padding: 8px 0 48px;
+    font-size: 0.7rem; color: var(--charcoal); letter-spacing: 0.06em;
+  }
+  .wf-text-link span { border-bottom: 1px solid var(--charcoal); padding-bottom: 2px; }
+
+  /* Asymmetric text + image section (Piaget style) */
+  .wf-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; }
+  .wf-split-img {
+    background: linear-gradient(135deg, #e8e3dc, #d4cdc4);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--mid); font-size: 0.75rem; font-style: italic;
+  }
+  .wf-split-text {
+    padding: 56px 48px; display: flex; flex-direction: column; justify-content: center;
+    background: var(--white);
+  }
+  .wf-split-text h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300;
+    letter-spacing: 0.04em; margin-bottom: 16px; margin-top: 0; text-transform: uppercase; color: var(--charcoal);
+  }
+  .wf-split-text p { font-size: 0.82rem; line-height: 1.8; color: var(--text-light); }
+  .wf-split-text .link { font-size: 0.7rem; color: var(--charcoal); border-bottom: 1px solid var(--charcoal); display: inline-block; padding-bottom: 2px; margin-top: 20px; letter-spacing: 0.04em; }
+
+  /* Categories on white */
+  .wf-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light-border); }
+  .wf-cat { background: var(--white); padding: 48px 20px; text-align: center; }
+  .wf-cat-icon { font-size: 1.5rem; margin-bottom: 14px; }
+  .wf-cat h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; margin-bottom: 4px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); }
+  .wf-cat p { font-size: 0.7rem; color: var(--mid); margin: 0; }
+
+  /* Light cream footer (Piaget style — NOT dark) */
+  .wf-footer {
+    background: var(--cream); color: var(--text-light);
+    padding: 48px 32px 40px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 28px; font-size: 0.72rem; border-top: 1px solid var(--light-border);
+  }
+  .wf-footer h5 {
+    font-family: 'Cormorant Garamond', serif; color: var(--charcoal);
+    font-size: 0.82rem; font-weight: 400; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .wf-footer .line { margin-bottom: 6px; color: var(--text-light); }
+  .wf-footer .copyright {
+    grid-column: 1 / -1; text-align: center; padding-top: 28px;
+    border-top: 1px solid var(--light-border); font-size: 0.65rem; color: var(--mid);
+  }
+
+  /* Video spec box */
+  .video-spec { background: var(--cream); padding: 28px 32px; margin-top: 20px; color: var(--text); }
+  .video-spec h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .video-spec .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .video-spec .spec-item .spec-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 3px; }
+  .video-spec .spec-item .spec-value { font-size: 0.85rem; color: var(--text); }
+
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .tech-card { background: var(--white); border: 1px solid var(--light-border); padding: 18px; }
+  .tech-card h4 { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+  .tech-card p { font-size: 0.78rem; margin: 0; color: var(--mid); }
+
+  .roadmap { display: flex; flex-direction: column; gap: 0; margin-top: 20px; position: relative; }
+  .roadmap::before { content: ''; position: absolute; left: 17px; top: 20px; bottom: 20px; width: 1px; background: var(--light-border); }
+  .rm-phase { display: flex; gap: 16px; padding: 16px 0; position: relative; }
+  .rm-dot { width: 36px; height: 36px; border: 1px solid var(--light-border); background: var(--white); color: var(--text); display: flex; align-items: center; justify-content: center; font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 500; flex-shrink: 0; z-index: 1; }
+  .rm-content h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 2px; letter-spacing: 0.02em; }
+  .rm-content > p { font-size: 0.78rem; color: var(--mid); margin-bottom: 6px; }
+  .rm-content .rm-items { font-size: 0.78rem; color: var(--text-light); line-height: 1.85; }
+
+  .idea-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .idea-card { background: var(--white); border: 1px solid var(--light-border); padding: 18px 20px; transition: border-color 0.2s; }
+  .idea-card:hover { border-color: var(--gold); }
+  .idea-card h4 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+  .idea-card p { font-size: 0.78rem; margin: 0; color: var(--mid); }
+
+  code { background: rgba(197,162,88,0.08); padding: 2px 8px; font-size: 0.82rem; font-family: 'DM Sans', monospace; color: var(--gold-muted); }
+
+  @media (max-width: 700px) {
+    .grid-2, .tech-grid, .idea-grid { grid-template-columns: 1fr; }
+    .wf-categories, .logo-usage-grid { grid-template-columns: 1fr; }
+    .wf-split, .wf-footer { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+    .video-spec .spec-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Zegarmistrzostwo</h1>
+  <div class="tagline">biżuteria · zegarki · <span>rzemiosło</span></div>
+  <div class="pill">Branding & Web Design Guide</div>
+</div>
+
+<div class="container">
+
+<section>
+  <h2><span class="num">01</span> Business Snapshot</h2>
+  <p class="section-desc">Jewelry, watches, and expert watchmaking services in Bolesławiec.</p>
+  <div class="grid-2">
+    <div class="card"><div class="label">Name</div><div class="value">Zegarmistrzostwo</div></div>
+    <div class="card"><div class="label">Category</div><div class="value">Firma biżuteryjno-zegarmistrzowska</div></div>
+    <div class="card"><div class="label">Address</div><div class="value">Sierpnia 80 12/13, 59-700 Bolesławiec</div></div>
+    <div class="card"><div class="label">Phone</div><div class="value">75 734 21 19</div></div>
+    <div class="card"><div class="label">Hours</div><div class="value">Mon–Fri 9–18 · Sat 9–14 · Sun closed</div></div>
+    <div class="card"><div class="label">Online</div><div class="value">Facebook (349) · Instagram (58) · Allegro</div></div>
+  </div>
+  <div class="note"><h4>What they sell & do</h4><p>Jewelry (gold, silver, moissanite, topaz, morganite, emeralds), watches (G-Shock, fashion, ceramic), watchmaking repairs (battery swap, servicing, restoration). The name means "watchmaking mastery" — craft expertise is the core differentiator.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">02</span> Brand Direction</h2>
+  <p class="section-desc">Inspired by Piaget's approach: light, airy, photography-forward. Elegance through whitespace and restraint, not through darkness.</p>
+  <h3>Vibe</h3>
+  <p>Think Piaget, Cartier, Boucheron — the page is overwhelmingly white and bright. Photography does the heavy lifting. Large product/lifestyle images on clean white backgrounds. Thin serif headlines float with plenty of breathing room. Gold accents are used sparingly — a border here, a link underline there. The video hero is the one dramatic moment; everything after it opens up into bright, spacious content.</p>
+  <h3>Layout Pattern</h3>
+  <p>White sticky nav with centered logo → full-bleed video hero → white content sections with centered headings → asymmetric text + image blocks → 3-column categories on white → light cream footer. Dark backgrounds are used only inside the video hero overlay. The rest of the page is white or warm cream.</p>
+  <h3>Voice (Polish)</h3>
+  <p>Warm, knowledgeable, welcoming. Short, confident statements. Understated text links instead of heavy buttons — Piaget uses simple underlined links for CTAs. "Odkryj" (discover), "Poznaj" (get to know), "Umów wizytę" (book a visit).</p>
+  <div class="note"><h4>Positioning</h4><p><strong style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:300; letter-spacing:0.04em; text-transform:uppercase;">"Rzemiosło spotyka elegancję"</strong> — Craft meets elegance. Expert watchmaking paired with beautiful jewelry, in a store that actually cares.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">03</span> Logo</h2>
+  <p class="section-desc">Two-part mark: watch icon (case, crown, diamond facet, hands) + ZEGARMISTRZOSTWO wordmark. Brand color: <code>#1D1D1B</code>.</p>
+  <div class="logo-showcase">
+    <div class="logo-variant dark">
+      <svg viewBox="6200 0 3000 3400" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7846.24,997.68l128.36-152.23c13.32-17.14,21.58-22.65,34.54-40.35,23.81-32.51,150.68-167.7,155.92-192.16,5.87-27.3-8.41-33.23-21.64-47.98-20.26-22.56-43.96-56.3-64.61-78.74l-193.95-228.46c-26.52-29.38-32.78-57.52-85.44-57.52h-642.17c-39.22,0-58.86,29.77-78.74,55.64-59.07,76.89-168.86,193.06-228.4,269.05-12.7,16.21-18.63,20.8-31.83,36.21-46.67,54.54-18.86,65.3,72.09,173.45l128.77,150.38c22.44,26.11,41.45,53.82,64.7,78.5l29.56,35.08c-501.71,156.49-865.92,624.71-865.92,1177.98,0,681.36,552.35,1233.71,1233.71,1233.71s1233.74-552.35,1233.74-1233.71c0-554.29-365.52-1023.22-868.7-1178.85Zm-810.29-398.36c-5.42-5.42-5.42-14.31,0-19.73l171.24-171.24c5.42-5.42,14.3-5.42,19.73,0l171.24,171.24c5.42,5.42,5.42,14.3,0,19.73l-171.24,171.24c-5.42,5.42-14.31,5.42-19.73,0l-171.24-171.24Zm445.24,2645.88c-590.2,0-1068.67-478.47-1068.67-1068.67,0-503.86,348.68-926.28,817.91-1039.1,40.2-9.69,81.33-17.08,123.17-22.02,6.35-.77,12.67-1.49,19.04-2.12,6.38-.66,12.75-1.22,19.16-1.73,7.3-.66,14.66-1.19,22.02-1.61,3.67-.27,7.36-.48,11.06-.66,.42-.03,.86-.06,1.31-.06,3.76-.21,7.51-.36,11.3-.51,1.25-.06,2.5-.12,3.76-.15,4.11-.15,8.22-.3,12.34-.39,4.44-.12,8.88-.21,13.35-.27h1.25c4.32-.06,8.64-.09,12.99-.09,6.71,0,13.38,.06,20.03,.21,3.52,.03,7.03,.12,10.52,.24,1.1,0,2.21,.03,3.31,.09,3.82,.12,7.6,.24,11.39,.42,2,.06,3.99,.15,5.99,.27,3.52,.15,7,.33,10.49,.57,.86,0,1.7,.06,2.53,.15,5.01,.27,10.01,.63,14.99,.98,5.25,.36,10.46,.77,15.68,1.25,10.43,.89,20.8,1.97,31.14,3.22,41.34,4.83,81.99,12.04,121.74,21.52,470.75,111.73,820.9,534.86,820.9,1039.79,0,590.2-478.47,1068.67-1068.7,1068.67Z"/><path d="M8053.47,2704.08c-10.56,0-21.18-3.58-29.9-10.91l-572.03-480.83c-.44-.37-.88-.74-1.31-1.13-4.87-4.35-8.63-9.52-11.22-15.12-2.54-5.48-4.05-11.54-4.27-17.93-.02-.66-.03-1.32-.03-1.99v-539.42c0-25.68,20.82-46.5,46.5-46.5s46.5,20.82,46.5,46.5v518.12l555.7,467.11c19.66,16.52,22.2,45.86,5.68,65.51-9.2,10.94-22.36,16.58-35.62,16.58Z"/></svg>
+      <div class="variant-label">Icon on Dark</div>
+    </div>
+    <div class="logo-variant light">
+      <svg viewBox="6200 0 3000 3400" fill="#1D1D1B" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7846.24,997.68l128.36-152.23c13.32-17.14,21.58-22.65,34.54-40.35,23.81-32.51,150.68-167.7,155.92-192.16,5.87-27.3-8.41-33.23-21.64-47.98-20.26-22.56-43.96-56.3-64.61-78.74l-193.95-228.46c-26.52-29.38-32.78-57.52-85.44-57.52h-642.17c-39.22,0-58.86,29.77-78.74,55.64-59.07,76.89-168.86,193.06-228.4,269.05-12.7,16.21-18.63,20.8-31.83,36.21-46.67,54.54-18.86,65.3,72.09,173.45l128.77,150.38c22.44,26.11,41.45,53.82,64.7,78.5l29.56,35.08c-501.71,156.49-865.92,624.71-865.92,1177.98,0,681.36,552.35,1233.71,1233.71,1233.71s1233.74-552.35,1233.74-1233.71c0-554.29-365.52-1023.22-868.7-1178.85Zm-810.29-398.36c-5.42-5.42-5.42-14.31,0-19.73l171.24-171.24c5.42-5.42,14.3-5.42,19.73,0l171.24,171.24c5.42,5.42,5.42,14.3,0,19.73l-171.24,171.24c-5.42,5.42-14.31,5.42-19.73,0l-171.24-171.24Zm445.24,2645.88c-590.2,0-1068.67-478.47-1068.67-1068.67,0-503.86,348.68-926.28,817.91-1039.1,40.2-9.69,81.33-17.08,123.17-22.02,6.35-.77,12.67-1.49,19.04-2.12,6.38-.66,12.75-1.22,19.16-1.73,7.3-.66,14.66-1.19,22.02-1.61,3.67-.27,7.36-.48,11.06-.66,.42-.03,.86-.06,1.31-.06,3.76-.21,7.51-.36,11.3-.51,1.25-.06,2.5-.12,3.76-.15,4.11-.15,8.22-.3,12.34-.39,4.44-.12,8.88-.21,13.35-.27h1.25c4.32-.06,8.64-.09,12.99-.09,6.71,0,13.38,.06,20.03,.21,3.52,.03,7.03,.12,10.52,.24,1.1,0,2.21,.03,3.31,.09,3.82,.12,7.6,.24,11.39,.42,2,.06,3.99,.15,5.99,.27,3.52,.15,7,.33,10.49,.57,.86,0,1.7,.06,2.53,.15,5.01,.27,10.01,.63,14.99,.98,5.25,.36,10.46,.77,15.68,1.25,10.43,.89,20.8,1.97,31.14,3.22,41.34,4.83,81.99,12.04,121.74,21.52,470.75,111.73,820.9,534.86,820.9,1039.79,0,590.2-478.47,1068.67-1068.7,1068.67Z"/><path d="M8053.47,2704.08c-10.56,0-21.18-3.58-29.9-10.91l-572.03-480.83c-.44-.37-.88-.74-1.31-1.13-4.87-4.35-8.63-9.52-11.22-15.12-2.54-5.48-4.05-11.54-4.27-17.93-.02-.66-.03-1.32-.03-1.99v-539.42c0-25.68,20.82-46.5,46.5-46.5s46.5,20.82,46.5,46.5v518.12l555.7,467.11c19.66,16.52,22.2,45.86,5.68,65.51-9.2,10.94-22.36,16.58-35.62,16.58Z"/></svg>
+      <div class="variant-label">Icon on White</div>
+    </div>
+    <div class="logo-variant accent">
+      <svg viewBox="6200 0 3000 3400" fill="#1D1D1B" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7846.24,997.68l128.36-152.23c13.32-17.14,21.58-22.65,34.54-40.35,23.81-32.51,150.68-167.7,155.92-192.16,5.87-27.3-8.41-33.23-21.64-47.98-20.26-22.56-43.96-56.3-64.61-78.74l-193.95-228.46c-26.52-29.38-32.78-57.52-85.44-57.52h-642.17c-39.22,0-58.86,29.77-78.74,55.64-59.07,76.89-168.86,193.06-228.4,269.05-12.7,16.21-18.63,20.8-31.83,36.21-46.67,54.54-18.86,65.3,72.09,173.45l128.77,150.38c22.44,26.11,41.45,53.82,64.7,78.5l29.56,35.08c-501.71,156.49-865.92,624.71-865.92,1177.98,0,681.36,552.35,1233.71,1233.71,1233.71s1233.74-552.35,1233.74-1233.71c0-554.29-365.52-1023.22-868.7-1178.85Z"/><path d="M8053.47,2704.08c-10.56,0-21.18-3.58-29.9-10.91l-572.03-480.83c-.44-.37-.88-.74-1.31-1.13-4.87-4.35-8.63-9.52-11.22-15.12-2.54-5.48-4.05-11.54-4.27-17.93-.02-.66-.03-1.32-.03-1.99v-539.42c0-25.68,20.82-46.5,46.5-46.5s46.5,20.82,46.5,46.5v518.12l555.7,467.11c19.66,16.52,22.2,45.86,5.68,65.51-9.2,10.94-22.36,16.58-35.62,16.58Z"/></svg>
+      <div class="variant-label">On Cream</div>
+    </div>
+  </div>
+  <div class="logo-usage-grid">
+    <div class="logo-usage-item"><div class="usage-icon">&#9776;</div><h4>Navbar</h4><p>Wordmark centered, charcoal on white</p></div>
+    <div class="logo-usage-item"><div class="usage-icon">&#9632;</div><h4>Hero Overlay</h4><p>Full logo, white on video</p></div>
+    <div class="logo-usage-item"><div class="usage-icon">&#9883;</div><h4>Favicon</h4><p>Watch icon only</p></div>
+  </div>
+  <div class="note"><h4>Files</h4><p>Source: <code>zegarmistrzostwo_logo.svg</code>. Prep white + charcoal variants. In Next.js: <code>/public/logo/logo-dark.svg</code>, <code>logo-light.svg</code>, <code>logo-icon.svg</code>.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">04</span> Color Palette</h2>
+  <p class="section-desc">White-dominant with warm accents. Gold is used sparingly — mostly for small details. The page breathes.</p>
+  <div class="palette-row"><h3>Core</h3><div class="palette">
+    <div class="swatch"><div class="swatch-color" style="background:#FFFFFF; border:1px solid #e5dfd4;"></div><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FAF7F2;"></div><div class="swatch-name">Warm White</div><div class="swatch-hex">#FAF7F2</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F5F0EA;"></div><div class="swatch-name">Cream</div><div class="swatch-hex">#F5F0EA</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1D1D1B;"></div><div class="swatch-name">Charcoal</div><div class="swatch-hex">#1D1D1B</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#C5A258;"></div><div class="swatch-name">Gold</div><div class="swatch-hex">#C5A258</div></div>
+  </div></div>
+  <div class="palette-row"><h3>Supporting</h3><div class="palette">
+    <div class="swatch"><div class="swatch-color" style="background:#3A3835;"></div><div class="swatch-name">Text</div><div class="swatch-hex">#3A3835</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#6B6660;"></div><div class="swatch-name">Text Light</div><div class="swatch-hex">#6B6660</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#8A8580;"></div><div class="swatch-name">Mid</div><div class="swatch-hex">#8A8580</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#E5DFD4;"></div><div class="swatch-name">Border</div><div class="swatch-hex">#E5DFD4</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#EEEAE3;"></div><div class="swatch-name">Smoke</div><div class="swatch-hex">#EEEAE3</div></div>
+  </div></div>
+  <div class="note"><h4>Usage</h4><p>White is the dominant page background — 80%+ of the surface. Cream for footer and accent blocks. Charcoal for text and occasional section backgrounds (newsletter, special features). Gold for small accents only: link underlines, section markers, hover states. Never use gold as a large background fill.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">05</span> Typography</h2>
+  <p class="section-desc">Cormorant Garamond at light weight (300) with generous letter-spacing and uppercase for headings. Clean, quiet, editorial.</p>
+  <div class="type-demo"><div class="demo-label">Headings — Cormorant Garamond 300 Uppercase</div><div class="type-heading">Piękno w każdym detalu</div><div class="type-subheading">Biżuteria · Zegarki · Serwis</div></div>
+  <div class="type-demo"><div class="demo-label">Body — DM Sans 400</div><div class="type-body-demo">Zegarmistrzostwo to miejsce, w którym tradycja zegarmistrzowska spotyka się z nowoczesnym designem. Od lat łączymy precyzję rzemiosła z pasją do pięknych przedmiotów — bo wierzymy, że każdy detal ma znaczenie.</div></div>
+  <div class="type-demo"><div class="demo-label">Accent — Cormorant Garamond Italic 300</div><div class="type-accent">"Czas jest najcenniejszym klejnotem"</div></div>
+  <div class="note"><h4>CTAs & Links</h4><p>Follow Piaget's pattern: use underlined text links instead of buttons for content CTAs. Simple <code>border-bottom: 1px solid</code> on text. Reserve filled buttons only for the primary nav CTA and checkout flows.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">06</span> Video Hero</h2>
+  <p class="section-desc">The homepage hero is a full-bleed looping video — the one dramatic moment on an otherwise white page.</p>
+  <h3>Concept</h3>
+  <p>Close-ups of watch mechanisms, hands at work, light catching gemstones, the workshop in motion. The video fills the viewport beneath the white nav bar. A subtle dark gradient at the bottom allows the tagline to read clearly. The nav stays white and sticky above — it does NOT go transparent over the video (Piaget keeps the nav separate and clean).</p>
+  <div class="video-spec">
+    <h4>Video Specifications</h4>
+    <div class="spec-grid">
+      <div class="spec-item"><div class="spec-label">Format</div><div class="spec-value">MP4 (H.264) + WebM fallback</div></div>
+      <div class="spec-item"><div class="spec-label">Duration</div><div class="spec-value">15–25 seconds, seamless loop</div></div>
+      <div class="spec-item"><div class="spec-label">Resolution</div><div class="spec-value">1920×1080 (serve 720p on mobile)</div></div>
+      <div class="spec-item"><div class="spec-label">File Size</div><div class="spec-value">Target &lt;5MB (compressed)</div></div>
+      <div class="spec-item"><div class="spec-label">Overlay</div><div class="spec-value">Subtle bottom gradient only — keep the image bright</div></div>
+      <div class="spec-item"><div class="spec-label">Fallback</div><div class="spec-value">High-quality still poster for slow connections</div></div>
+      <div class="spec-item"><div class="spec-label">Behavior</div><div class="spec-value">Autoplay, muted, loop, playsinline</div></div>
+      <div class="spec-item"><div class="spec-label">Mobile</div><div class="spec-value">Static poster image (save bandwidth)</div></div>
+    </div>
+  </div>
+  <div class="note"><h4>Next.js Implementation</h4><p>Use a <code>&lt;video&gt;</code> tag with <code>autoPlay muted loop playsInline</code>. Load via <code>next/dynamic</code> with SSR disabled for the video component. Serve from Vercel Blob or Cloudinary for edge caching. Use <code>poster</code> attribute for the fallback frame. On mobile, swap to a static <code>&lt;Image&gt;</code> using <code>next/image</code>.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">07</span> Site Map</h2>
+  <p class="section-desc">Start lean. Gold = build now.</p>
+  <div class="sitemap">
+    <div class="sitemap-page"><div class="page-num">01</div><div class="page-info"><h4>Strona Główna</h4><p>Video hero, featured categories, about teaser, hours, CTA</p></div><div class="badge badge-now">Phase 1</div></div>
+    <div class="sitemap-page"><div class="page-num">02</div><div class="page-info"><h4>O Nas</h4><p>Store story, craft philosophy, team, workshop gallery</p></div><div class="badge badge-now">Phase 1</div></div>
+    <div class="sitemap-page"><div class="page-num">03</div><div class="page-info"><h4>Oferta</h4><p>Jewelry categories, watch brands, repair services & pricing</p></div><div class="badge badge-now">Phase 1</div></div>
+    <div class="sitemap-page"><div class="page-num">04</div><div class="page-info"><h4>Kontakt</h4><p>Map, address, phone, hours, form, social links</p></div><div class="badge badge-now">Phase 1</div></div>
+    <div class="sitemap-page"><div class="page-num">05</div><div class="page-info"><h4>Galeria</h4><p>IG-style photo grid, auto-pull from Instagram</p></div><div class="badge badge-next">Phase 2</div></div>
+    <div class="sitemap-page"><div class="page-num">06</div><div class="page-info"><h4>Sklep</h4><p>Products, filters, cart, checkout, Przelewy24/BLIK</p></div><div class="badge badge-next">Phase 2</div></div>
+    <div class="sitemap-page"><div class="page-num">07</div><div class="page-info"><h4>Blog</h4><p>SEO content: care tips, gift guides, gemstone education</p></div><div class="badge badge-future">Phase 3</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">08</span> Homepage Wireframe</h2>
+  <p class="section-desc">Light, Piaget-inspired. White nav → video hero → white content → cream footer. Minimal dark areas.</p>
+
+  <div class="wireframe">
+    <!-- WHITE NAV — Piaget style with centered logo -->
+    <div class="wf-nav">
+      <div class="top-row">
+        <div class="side-links"><span>Lokalizacja</span> <span>Sklep</span></div>
+        <div class="logo">Zegarmistrzostwo</div>
+        <div class="icon-links">&#128269;</div>
+      </div>
+      <div class="main-links">
+        <span>Biżuteria</span>
+        <span>Zegarki</span>
+        <span>Serwis</span>
+        <span>O nas</span>
+        <span>Kontakt</span>
+      </div>
+    </div>
+
+    <!-- VIDEO HERO — the one dramatic moment -->
+    <div class="wf-video-hero">
+      <div class="video-bg"><div class="play-icon">&#9654;</div></div>
+      <div class="video-overlay"></div>
+      <div class="hero-content">
+        <div class="wf-tagline">Rzemiosło spotyka elegancję</div>
+        <div class="wf-sub">Biżuteria · Zegarki · Serwis zegarmistrzowski</div>
+        <div class="wf-cta">Odkryj naszą ofertę</div>
+      </div>
+    </div>
+
+    <!-- PRODUCT HEADING — centered on white, Piaget-style -->
+    <div class="wf-product-heading">Odkryj nasze kolekcje</div>
+    <div class="wf-product-sub">Od eleganckich pierścionków z moissanitem po sportowe zegarki G-Shock — znajdź coś wyjątkowego.</div>
+    <div class="wf-text-link"><span>Zobacz pełną ofertę</span></div>
+
+    <!-- CATEGORIES on white -->
+    <div class="wf-categories">
+      <div class="wf-cat"><div class="wf-cat-icon">💍</div><h4>Biżuteria</h4><p>Pierścionki, naszyjniki, kolczyki</p></div>
+      <div class="wf-cat"><div class="wf-cat-icon">⌚</div><h4>Zegarki</h4><p>Damskie, męskie, sportowe</p></div>
+      <div class="wf-cat"><div class="wf-cat-icon">🔧</div><h4>Serwis</h4><p>Naprawa, wymiana baterii</p></div>
+    </div>
+
+    <!-- ASYMMETRIC TEXT + IMAGE — Piaget "Sixtie" style -->
+    <div class="wf-split">
+      <div class="wf-split-text">
+        <h3>Znamy się na tym,<br>co robimy</h3>
+        <p>Od lat łączymy rzemiosło zegarmistrzowskie z nowoczesną biżuterią. Nasz salon w Bolesławcu to miejsce, gdzie tradycja spotyka się z pasją do pięknych przedmiotów.</p>
+        <div class="link">Poznaj naszą historię</div>
+      </div>
+      <div class="wf-split-img">[ Zdjęcie warsztatu ]</div>
+    </div>
+
+    <!-- LIGHT CREAM FOOTER — Piaget style -->
+    <div class="wf-footer">
+      <div><h5>Kontakt</h5><div class="line">Sierpnia 80 12/13</div><div class="line">59-700 Bolesławiec</div><div class="line">tel. 75 734 21 19</div></div>
+      <div><h5>Godziny</h5><div class="line">Pon–Pt: 9:00–18:00</div><div class="line">Sob: 9:00–14:00</div><div class="line">Nd: zamknięte</div></div>
+      <div><h5>Serwis</h5><div class="line">Umów wizytę</div><div class="line">Status naprawy</div><div class="line">Cennik usług</div></div>
+      <div><h5>Społeczność</h5><div class="line">Facebook</div><div class="line">Instagram</div><div class="line">Allegro</div></div>
+      <div class="copyright">© 2026 Zegarmistrzostwo</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">09</span> Tech Stack</h2>
+  <p class="section-desc">Fast, SEO-friendly, ready for e-commerce growth.</p>
+  <div class="tech-grid">
+    <div class="tech-card"><h4>Next.js 14+ (App Router)</h4><p>Server components for SEO. Modern React patterns.</p></div>
+    <div class="tech-card"><h4>Tailwind CSS</h4><p>Utility-first. Custom palette in tailwind.config.ts.</p></div>
+    <div class="tech-card"><h4>TypeScript</h4><p>Type safety from day one for future e-commerce.</p></div>
+    <div class="tech-card"><h4>Vercel</h4><p>Zero-config deploys, edge functions, image optimization.</p></div>
+    <div class="tech-card"><h4>next-intl</h4><p>Polish primary, English for Bolesławiec tourists.</p></div>
+    <div class="tech-card"><h4>Framer Motion</h4><p>Subtle, elegant animations. Fade-ins, smooth reveals.</p></div>
+    <div class="tech-card"><h4>Sanity CMS</h4><p>Owner updates products and gallery without code.</p></div>
+    <div class="tech-card"><h4>Vercel Analytics</h4><p>Track visitors + Google Search Console for local SEO.</p></div>
+  </div>
+  <div class="note"><h4>E-commerce (Phase 2)</h4><p><strong>Saleor</strong> or <strong>Medusa.js</strong> for headless commerce. Payments: <strong>Przelewy24</strong> (BLIK, bank transfers, cards). Shipping: InPost + Poczta Polska.</p></div>
+</section>
+
+<section>
+  <h2><span class="num">10</span> Roadmap</h2>
+  <p class="section-desc">From first deploy to full shop in ~4 months.</p>
+  <div class="roadmap">
+    <div class="rm-phase"><div class="rm-dot">1</div><div class="rm-content"><h4>Foundation (Weeks 1–2)</h4><p>Get the basic site live</p><div class="rm-items">Next.js + Tailwind + custom theme<br>Homepage with video hero, About, Services, Contact<br>Mobile-responsive, deployed to *.vercel.app</div></div></div>
+    <div class="rm-phase"><div class="rm-dot">2</div><div class="rm-content"><h4>SEO & Polish (Weeks 3–4)</h4><p>Make it discoverable</p><div class="rm-items">Meta tags, Open Graph, LocalBusiness schema<br>Performance optimization, custom domain<br>Sanity CMS, analytics</div></div></div>
+    <div class="rm-phase"><div class="rm-dot">3</div><div class="rm-content"><h4>Content & Gallery (Month 2)</h4><p>Rich content for engagement</p><div class="rm-items">Photo gallery (IG integration)<br>Blog system, first SEO articles<br>Customer testimonials</div></div></div>
+    <div class="rm-phase"><div class="rm-dot">4</div><div class="rm-content"><h4>E-commerce (Month 3–4)</h4><p>Start selling online</p><div class="rm-items">Product catalog, filters, search<br>Cart, checkout, Przelewy24/BLIK<br>InPost, Poczta Polska shipping</div></div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">11</span> Feature Ideas</h2>
+  <p class="section-desc">Things that would make this stand out.</p>
+  <div class="idea-grid">
+    <div class="idea-card"><h4>Repair Status Tracker</h4><p>Drop off a watch, get a ticket. Check status online. Unique for a local store.</p></div>
+    <div class="idea-card"><h4>Gift Finder Quiz</h4><p>Occasion + budget + style → product recommendations. Great for campaigns.</p></div>
+    <div class="idea-card"><h4>Instagram Feed</h4><p>Pull IG grid into the site. Their photography is already great.</p></div>
+    <div class="idea-card"><h4>Appointment Booking</h4><p>Book consultations or repair drop-off times online.</p></div>
+    <div class="idea-card"><h4>Gemstone Education</h4><p>Pages on moissanite, topaz, morganite. Builds trust + SEO.</p></div>
+    <div class="idea-card"><h4>WhatsApp Quick Contact</h4><p>Floating button for instant messaging.</p></div>
+    <div class="idea-card"><h4>Bolesławiec Local SEO</h4><p>Target ceramics tourists. Capture adjacent search traffic.</p></div>
+    <div class="idea-card"><h4>AR Try-On</h4><p>Phone camera ring/bracelet try-on. Ambitious but big for online sales.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">12</span> Design Principles</h2>
+  <div class="idea-grid">
+    <div class="idea-card"><h4>White First</h4><p>80%+ of the page is white or warm-white. Photography and typography create interest, not colored backgrounds.</p></div>
+    <div class="idea-card"><h4>One Dramatic Moment</h4><p>The video hero is the single bold element. Everything else is restrained and quiet.</p></div>
+    <div class="idea-card"><h4>Underlined Links, Not Buttons</h4><p>Follow Piaget's pattern: simple text links with underlines for content CTAs. Reserve buttons for nav and checkout.</p></div>
+    <div class="idea-card"><h4>Asymmetric Layouts</h4><p>Text on one side, image on the other. Editorial feel. Let content breathe with generous padding.</p></div>
+  </div>
+</section>
+
+</div>
+
+<div style="background:var(--cream); color:var(--mid); text-align:center; padding:40px; margin-top:40px; border-top:1px solid var(--light-border);">
+  <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; color:var(--charcoal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;">Zegarmistrzostwo</div>
+  <div style="font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase;">Branding & Web Design Guide — Feb 2026 — Prepared for Jacek</div>
+</div>
+
+</body>
+</html>
