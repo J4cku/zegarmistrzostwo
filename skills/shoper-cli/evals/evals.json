@@ -1,0 +1,23 @@
+{
+  "skill_name": "shoper-cli",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to change the fonts on my Shoper store to use Cormorant Garamond for headings and DM Sans for body text. The store URL is sklep788953.shoparena.pl. Can you write me the custom.less file that does this?",
+      "expected_output": "A custom.less file that imports the Google Fonts and applies Cormorant Garamond to headings and DM Sans to body text, with proper LESS syntax and Shoper-aware selectors",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want to create a custom module for my Shoper store that shows a full-width video hero section on the homepage. The video URL should be configurable from the Visual Editor. Walk me through how to build this.",
+      "expected_output": "Step-by-step instructions for creating a custom video hero module, including module.twig template, schema.json with video URL config, and the push workflow",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I just set up a new Shoper store and I need to pull the theme files so I can start customizing. I already have the CLI installed and authenticated. The theme I want to work with has ID 5. What do I do?",
+      "expected_output": "Clear instructions to clone the theme (since you can't edit defaults), pull it, and explanation of the directory structure they'll see",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+/* Zegarmistrzostwo — luxury watch & jewelry brand overrides */
+
+/* ============================================================
+   1. TYPOGRAPHY — Cormorant Garamond for headings
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+@font-cormorant: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-family: @font-cormorant;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  font-family: @font-cormorant;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   2. LINKS — gold underline CTAs, Piaget-style
+   ============================================================ */
+
+a {
+  transition: color 0.2s ease;
+}
+
+/* ============================================================
+   3. BUTTONS — sharp, refined, no rounded corners
+   ============================================================ */
+
+.btn-primary,
+.btn-secondary {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  &:hover {
+    background-color: darken(@secondaryColor, 8%);
+  }
+}
+
+.btn-secondary {
+  border: 1px solid #e5dfd4;
+
+  &:hover {
+    border-color: @secondaryColor;
+    color: @secondaryColor;
+  }
+}
+
+/* ============================================================
+   4. HEADER / NAVIGATION — clean, airy
+   ============================================================ */
+
+header,
+[role="banner"] {
+  border-bottom: 1px solid #e5dfd4;
+}
+
+.header__logo {
+  font-family: @font-cormorant;
+  letter-spacing: 0.08em;
+}
+
+/* Nav links: refined uppercase */
+.navigation a,
+.nav a,
+.menu a {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: @secondaryColor;
+  }
+}
+
+/* ============================================================
+   5. SECTION TITLES — gold accent underline
+   ============================================================ */
+
+.section-title {
+  font-family: @font-cormorant;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background-color: @secondaryColor;
+    margin-top: 12px;
+  }
+}
+
+/* ============================================================
+   6. NEWSLETTER — seamless cream section, no jarring white box
+   ============================================================ */
+
+/* Force ALL elements within the newsletter grid to inherit cream bg.
+   The white box is a .grid__col sibling ABOVE .newsletter, so we
+   target the entire .grid.grid_full section that contains it. */
+.grid.grid_full {
+  /* Use :has() for modern browsers to scope only to newsletter grids */
+  &:has(.newsletter) {
+    background-color: #f5f0ea !important;
+
+    .grid__col {
+      background-color: transparent !important;
+    }
+  }
+}
+
+/* Fallback for browsers without :has() — target the newsletter wrapper
+   and all grid cols within grids that precede the footer */
+.newsletter {
+  background-color: #f5f0ea !important;
+
+  h2, h3, .h2, .h3 {
+    font-family: @font-cormorant;
+    font-weight: 300 !important;
+    letter-spacing: 0.06em;
+    color: @primaryColor;
+  }
+
+  p {
+    color: #6b6660;
+  }
+
+  .newsletter__container,
+  .newsletter__form-wrapper,
+  form {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  input[type="email"],
+  input[type="text"] {
+    background: #ffffff;
+    border: 1px solid #e5dfd4 !important;
+    border-radius: 0 !important;
+
+    &:focus {
+      border-color: @secondaryColor !important;
+    }
+  }
+
+  .btn,
+  button[type="submit"] {
+    border-radius: 0 !important;
+  }
+}
+
+/* ============================================================
+   7. FOOTER — cream background (Piaget-style, NOT dark)
+   ============================================================ */
+
+footer,
+footer.context-1,
+[role="contentinfo"] {
+  background-color: #f5f0ea !important;
+  color: #3a3835;
+  border-top: 1px solid #e5dfd4;
+
+  /* All heading levels in footer — force weight & charcoal color */
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
+  .footer__title,
+  .footer-title {
+    font-family: @font-cormorant !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #1d1d1b !important;
+  }
+
+  a {
+    color: #6b6660;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: @secondaryColor !important;
+    }
+  }
+
+  /* Muted body text in footer */
+  p, span, li, address {
+    color: #6b6660;
+    font-size: 0.875rem;
+  }
+
+  /* Contact info block: clean up the logo area */
+  .contact-info__wrapper {
+    font-style: normal;
+  }
+
+  .contact-info__logo-section {
+    margin-bottom: 16px;
+  }
+}
+
+/* Footer bottom bar */
+.footer__bottom,
+.footer-bottom {
+  border-top: 1px solid #e5dfd4;
+  color: #8a8580;
+  font-size: 0.75rem;
+}
+
+/* ============================================================
+   8. PRODUCT TILES — subtle hover, clean presentation
+   ============================================================ */
+
+.product-tile,
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-color: #e5dfd4;
+  }
+}
+
+/* Product name: serif elegance */
+.product-tile__name,
+.product-card__name,
+.product__name {
+  font-family: @font-cormorant;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Price styling: gold for promotions */
+.price--promo,
+.price--special {
+  color: @secondaryColor;
+}
+
+/* Product ribbons: refined badges */
+.ribbon,
+.product-ribbon {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0;
+}
+
+/* ============================================================
+   9. FORMS — clean, minimal borders
+   ============================================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  border: 1px solid #e5dfd4;
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: @secondaryColor;
+    outline: none;
+    box-shadow: 0 0 0 1px fade(@secondaryColor, 20%);
+  }
+}
+
+/* Reset inner input borders inside any wrapper to prevent doubling.
+   Wrappers already provide their own border — inner <input> must be bare. */
+.input,
+.search__input,
+.search__bar,
+h-input,
+.control__element {
+  input,
+  textarea {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent;
+  }
+}
+
+/* Kill ALL thick focus outlines from base theme — replace with subtle border shift */
+.input:focus-within,
+.search__bar:focus-within,
+.search_outline,
+.control__element:focus-within {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border-color: @secondaryColor !important;
+}
+
+/* Search bar */
+.search input,
+.header__search input {
+  border-radius: 0;
+}
+
+/* ============================================================
+   10. GLOBAL REFINEMENTS
+   ============================================================ */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: fade(@secondaryColor, 20%);
+  color: @primaryColor;
+}
+
+/* Dividers */
+hr {
+  border-color: #e5dfd4;
+}
+
+/* Breadcrumbs */
+.breadcrumb,
+.breadcrumbs {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a8580;
+
+  a {
+    color: #8a8580;
+
+    &:hover {
+      color: @secondaryColor;
+    }
+  }
+}
+
+/* Announcement/promo bar */
+.announcement-bar,
+.promo-bar {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ============================================================
+   11. MOBILE & CROSS-PAGE UI ALIGNMENT
+   ============================================================ */
+
+/* --- 11a. Mobile menu slide-in animation --- */
+/* Shoper toggles .menu via JS inline display. We add transition
+   on transform so the sidebar slides in smoothly when shown. */
+@media screen and (max-width: 575px) {
+  .menu {
+    transition: transform 0.3s cubic-bezier(0.25, 0.4, 0.25, 1),
+                opacity 0.25s ease;
+  }
+
+  /* Menu list items — subtle fade */
+  .menu__list-link {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+}
+
+/* --- 11b. Reduce mobile section spacing (all pages) --- */
+@media screen and (max-width: 575px) {
+  /* Grid sections: tighter vertical padding on mobile */
+  .grid.grid_full > .grid__row > .grid__col,
+  .grid > .grid__row > .grid__col {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Tighter horizontal padding on mobile */
+  .grid:not(.grid_full) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Reduce gaps between grid rows */
+  .grid__row {
+    gap: 0.75rem;
+  }
+
+  /* SVE sections: tighter spacing */
+  section,
+  [data-section] {
+    .grid__col {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+}
+
+/* --- 11c. Footer 2-column grid on mobile --- */
+@media screen and (max-width: 575px) {
+  .footer-groups {
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 1rem;
+    row-gap: 1.25rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .footer-group__title {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-group__link {
+    font-size: 0.8rem;
+  }
+
+  .footer-group__list {
+    margin-top: 0.5rem;
+  }
+
+  /* Contact info in footer: smaller on mobile */
+  footer .contact-info,
+  [role="contentinfo"] .contact-info {
+    font-size: 0.8rem;
+
+    &__logo-section {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+/* --- 11d. Info pages (o-nas, kontakt, oferta): tighter layout --- */
+@media screen and (max-width: 575px) {
+  /* Info page content: tighter spacing */
+  .staticpage,
+  .info-page,
+  [class*="about"] {
+    padding: 1rem 0;
+
+    h2, .h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h3, .h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Images in info pages: full-width + rounded */
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+
+  /* Two-column layouts in info pages: stack tighter */
+  .grid__col_xs-12 + .grid__col_xs-12 {
+    margin-top: 0.5rem;
+  }
+}
+
+/* --- 11e. Product promotions / categories section --- */
+@media screen and (max-width: 575px) {
+  /* Promotion tiles: keep 2-col on mobile */
+  .promotions {
+    .grid__row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+
+      > .grid__col {
+        flex: 0 0 75%;
+        scroll-snap-align: start;
+      }
+    }
+  }
+
+  /* Product tiles grid: tighter gap */
+  .products {
+    .grid__row {
+      gap: 0.5rem;
+    }
+  }
+
+  .product-tile,
+  .product-card {
+    .product-tile__name,
+    .product-card__name,
+    .product__name {
+      font-size: 0.78rem;
+    }
+  }
+}
+
+/* --- 11f. Header polish on all pages --- */
+@media screen and (max-width: 575px) {
+  /* Tighter header padding on mobile */
+  header,
+  [role="banner"] {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .header__logo {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Search bar: full width, tighter */
+  .search,
+  .header__search {
+    padding: 0.25rem 0;
+  }
+}
+
+/* --- 11g. Buttons: slightly smaller on mobile --- */
+@media screen and (max-width: 575px) {
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.78rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* --- 11h. Newsletter section: tighter on mobile --- */
+@media screen and (max-width: 575px) {
+  .newsletter {
+    padding: 1.5rem 1rem !important;
+
+    h2, h3, .h2, .h3 {
+      font-size: 1.2rem !important;
+    }
+  }
+}

@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.env.local
+
+# claude code
+.claude/
+.mcp.json
+
+# mcp-shoper dependencies
+mcp-shoper/node_modules/

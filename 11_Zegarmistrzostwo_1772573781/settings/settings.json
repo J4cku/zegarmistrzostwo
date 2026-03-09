@@ -1,0 +1,19 @@
+{
+    "system": {
+        "viewTransition": 0,
+        "loginDisplayMode": "popup",
+        "systemFavicon": {
+            "file_name": "favicon.png",
+            "uploaded_file": "favicon.png"
+        },
+        "productsCount": 24,
+        "xlSize": 750,
+        "lSize": 500,
+        "mSize": 300,
+        "sSize": 150,
+        "xsSize": 50,
+        "customIcons": 0,
+        "systemIcons": ""
+    },
+    "theme": []
+}
