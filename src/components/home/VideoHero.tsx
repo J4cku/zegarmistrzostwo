@@ -46,7 +46,7 @@ export default function VideoHero() {
           className="mt-8"
         >
           <TextLink
-            href="/oferta"
+            href="/bizuteria"
             className="border-white/50 text-white hover:border-white hover:text-white"
           >
             Odkryj naszą ofertę

@@ -16,7 +16,7 @@ export default function Collections() {
       </AnimateIn>
       <AnimateIn delay={0.3}>
         <div className="mt-6">
-          <TextLink href="/oferta">Zobacz pełną ofertę</TextLink>
+          <TextLink href="/bizuteria">Zobacz pełną ofertę</TextLink>
         </div>
       </AnimateIn>
     </section>

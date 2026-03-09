@@ -47,7 +47,7 @@ export default function Footer() {
             <Link href="/kontakt" className="block hover:text-charcoal">
               Umów wizytę
             </Link>
-            <Link href="/oferta" className="block hover:text-charcoal">
+            <Link href="/serwis" className="block hover:text-charcoal">
               Cennik usług
             </Link>
           </div>
